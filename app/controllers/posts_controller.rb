@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show,:edit,:update]
 
   def index
     @posts = Post.includes(:user).order('created_at DESC')
@@ -25,11 +25,20 @@ class PostsController < ApplicationController
 
   end
 
-  #def edit
-  #end
+  def edit
+    @tag_list =@post.tags.pluck(:name).join(",")
+  end
 
-  #def update
-  #end
+  def update
+    tag_list = params[:post][:tag_ids].split(',')
+    if @post.update_attributes(post_params)
+      @post.save_tags(tag_list)
+      flash[:success] = '投稿を編集しました‼'
+      redirect_to @post
+    else
+    render 'edit'
+    end
+  end
 
 private
 
