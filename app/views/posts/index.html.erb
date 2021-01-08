@@ -5,9 +5,13 @@
 
 <div>
   <% @posts.each do |post| %>
-    <%= post.content %>
-    <% post.tags.each do |tag| %>
-      <%= tag.name %>
+    <div>
+      <%= link_to post_path(post) do %>
+        <%= post.content %>
+        <% post.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
       <% end %>
-  <% end %>
+    <% end %>
+  </div>
 </div>

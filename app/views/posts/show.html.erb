@@ -1,0 +1,8 @@
+<%= @post.content %>
+<div>
+  <% @post.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</div>
+
+<div><%= link_to "戻る", root_path %></div>
