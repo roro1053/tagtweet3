@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    tag_list = params[:post][:tag_ids].split(',')
+    tag_list = params[:post][:tag_ids].split(/[[:blank:]]+/).select(&:present?)
     if @post.save
       @post.save_tags(tag_list)
       flash[:success] = '投稿しました!'
@@ -26,11 +26,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @tag_list =@post.tags.pluck(:name).join(",")
+    @tag_list =@post.tags.pluck(:name).join(" ")
   end
 
   def update
-    tag_list = params[:post][:tag_ids].split(',')
+    tag_list = params[:post][:tag_ids].split(/[[:blank:]]+/).select(&:present?)
     if @post.update_attributes(post_params)
       @post.save_tags(tag_list)
       flash[:success] = '投稿を編集しました‼'
