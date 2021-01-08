@@ -4,7 +4,10 @@
  <%= link_to "新規投稿", new_post_path %>
 
 <div>
-  <%# @posts.each do |post| %>
-    <%# post.content %>
-  <%# end %>
+  <% @posts.each do |post| %>
+    <%= post.content %>
+    <% post.tags.each do |tag| %>
+      <%= tag.name %>
+      <% end %>
+  <% end %>
 </div>
