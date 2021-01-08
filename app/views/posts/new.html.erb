@@ -1,0 +1,13 @@
+<div>新規投稿ページ</div>
+<%= form_with model: @post, local: true do |f| %>
+
+  <p><%= f.label :content, "タイトル" %></p>
+  <p><%= f.text_field :content %></p>
+
+  <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
+    placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
+
+  <%= f.submit '投稿' %>
+
+<% end %>
+<%= link_to "戻る", root_path%>

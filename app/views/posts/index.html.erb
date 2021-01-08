@@ -1,0 +1,10 @@
+ <%= link_to "ユーザー登録", new_user_registration_path %>
+<div>hello world</div>
+
+ <%= link_to "新規投稿", new_post_path %>
+
+<div>
+  <% @posts.each do |post| %>
+    <%= post.name %>
+  <% end %>
+</div>

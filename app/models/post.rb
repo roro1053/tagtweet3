@@ -5,7 +5,8 @@ class Post < ApplicationRecord
   def
     save_tags(post_tags)
     savepost_tags.each do |new_name|
-    post_tag = Tag.find_or_create_by(name: new_name)
-    self.tags << post_tag
+      post_tag = Tag.find_or_create_by(name: new_name)
+      self.tags << post_tag
+    end
   end
 end
