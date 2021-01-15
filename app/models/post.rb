@@ -14,10 +14,10 @@ class Post < ApplicationRecord
     end
 
     new_tags.each do |new_name|
-      
+      unless TagRelationship.where(post_id: id,tag_id: tags.ids).exists? 
         post_tag = Tag.find_or_create_by(name: new_name)
         self.tags << post_tag
-      
+      end
     end
   end
 end
