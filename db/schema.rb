@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2021_01_07_095540) do
     t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id", "tag_id"], name: "index_tag_relationships_on_post_id_and_tag_id", unique: true
     t.index ["post_id"], name: "index_tag_relationships_on_post_id"
     t.index ["tag_id"], name: "index_tag_relationships_on_tag_id"
   end

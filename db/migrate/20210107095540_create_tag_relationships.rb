@@ -6,6 +6,5 @@ class CreateTagRelationships < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :tag_relationships, [:post_id,:tag_id],unique: true
   end
 end
