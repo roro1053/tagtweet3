@@ -4,10 +4,40 @@
   <p><%= f.label :content, "タイトル" %></p>
   <p><%= f.text_field :content %></p>
 
-  <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
+  <%= f.text_field :tag_ids, class: "form-control col-4", id:'tag_ids',\
     placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
 
   <%= f.submit '投稿' %>
 
 <% end %>
 <%= link_to "戻る", root_path%>
+
+<div class="container">
+<div class="row">
+
+  <div class="col bg-primary">1</div>
+  <div class="col bg-danger">2</div>
+  <div class="col bg-info">3</div>
+
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+
+  <div class="col-8 bg-primary">1</div>
+  <div class="col-4 bg-danger">2</div>
+
+</div>
+</div>
+
+
+<div class="container">
+<div class="row">
+
+  <div class="col-10 bg-primary">1</div>
+  <div class="col-5 bg-danger">2</div>
+
+</div>
+</div>
+

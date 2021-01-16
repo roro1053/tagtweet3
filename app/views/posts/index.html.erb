@@ -1,17 +1,21 @@
  <%= link_to "ユーザー登録", new_user_registration_path %>
 <div>hello world</div>
 
+<% if user_signed_in? %>
  <%= link_to "新規投稿", new_post_path %>
 
-<div>
-  <% @posts.each do |post| %>
-    <div>
-      <%= link_to post_path(post) do %>
-        <%= post.content %>
-        <% post.tags.each do |tag| %>
-          <%= tag.name %>
+  <div>
+    <% @posts.each do |post| %>
+      <div>
+        <%= link_to post_path(post) do %>
+          <%= post.content %>
+          <% post.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end%>
+<%= link_to "ログイン", new_user_session_path, class: "header-login-btn" %>
+<%=link_to "ログアウト",  destroy_user_session_path,method: :delete, class: "logout" %>
