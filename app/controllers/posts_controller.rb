@@ -12,11 +12,12 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @posts = Post.includes(:user).order('created_at DESC')
     tag_list = params[:post][:tag_ids].split(/[[:blank:]]+/).select(&:present?)
     if @post.save
       @post.save_tags(tag_list)
       flash[:success] = '投稿しました!'
-      redirect_to root_url
+      #redirect_to root_url
     else
       render 'new'
     end
