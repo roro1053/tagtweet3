@@ -7,4 +7,5 @@
   <% end %>
 </div>
 <div><%= link_to "編集", edit_post_path(@post) %></div>
+<div><%= link_to "削除",post_path(@post), method: :delete %></div>
 <div><%= link_to "戻る", root_path %></div>

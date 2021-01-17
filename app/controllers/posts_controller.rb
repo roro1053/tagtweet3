@@ -27,6 +27,13 @@ class PostsController < ApplicationController
 
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    if post.destroy
+      redirect_to root_path
+    end
+  end
+
   def edit
     @tag_list =@post.tags.pluck(:name).join(" ")
   end
