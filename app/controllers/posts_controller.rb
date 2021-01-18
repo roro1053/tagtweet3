@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     if @post.save
       @post.save_tags(tag_list)
       flash[:success] = '投稿しました!'
-      #redirect_to root_url
+      redirect_to root_url
     else
       render 'new'
     end
