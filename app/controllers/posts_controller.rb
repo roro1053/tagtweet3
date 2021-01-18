@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    @tag_list =@post.tags.pluck(:name).join(" ")
   end
 
   def destroy

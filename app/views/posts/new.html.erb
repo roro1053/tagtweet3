@@ -1,4 +1,5 @@
 <div>新規投稿ページ</div>
+
 <%= form_with model: @post, local: true do |f| %>
 
   <p><%= f.label :content, "タイトル" %></p>
@@ -11,5 +12,8 @@
 
 <% end %>
 <%= link_to "戻る", root_path%>
+
+
+<div class="post-btn">投稿する</div>
 
 
